@@ -1,0 +1,19 @@
+{
+  "app_port": ":3000",
+  "grpc_port": ":6060",
+  "grpc_network": "tcp",
+  "grpc_client": "localhost",
+  "token_encryption_key": "aslkdjlkaj10830912039jlkoaiuwerasdjflkasd",
+  "token_authentication_key": "M8uqVtkmHWAV3K2PaSZYLKkHWqeCWd22cxGNPXYnpqeT3US",
+  "email": "bolmog.noreply@gmail.com",
+  "email_password": "longbeach2019-2020",
+  "email_confirmation_endpoint": "https://api.layana.eu/api/auth/confirm-email/",
+  "login_redirection_url": "https://site.layana.eu/#/login",
+  "recover_password_url": "http://site.layana.eu/#/new-password/",
+  "database_host": "mongo:27017",
+  "database_name": "illuminati_prod",
+  "recover_password_token_validity_time": 5,
+  "access_token_validity_time": 24,
+  "refresh_token_validity_time": 168,
+  "is_unit_test": false
+}
