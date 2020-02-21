@@ -9,7 +9,6 @@ import (
 	"343-Group-K-Illuminati/illuminati_api/models/payload"
 	"343-Group-K-Illuminati/illuminati_api/utils"
 	"errors"
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"time"

@@ -10,26 +10,7 @@ import (
 
 func UsersQueryStringVerification() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		variables := []string{"id", "createdAt", "updatedAt", "auth_method", "username", "email", "admin", "verified", "gardening_info", "gardening_info.time_to_spend",
-			"gardening_info.gardening_level", "gardening_info.latitude", "gardening_info.longitude"}
-		if QueryStringVerification(variables, c.Keys["research_data"].(filters.ResearchData).QueryStringToVerify.Parameters, c) {
-			c.Next()
-		}
-	}
-}
-
-func PlantsQueryStringVerification() gin.HandlerFunc {
-	return func(c *gin.Context) {
-		variables := []string{"id", "createdAt", "updatedAt", "common_name", "scientific_name", "temperature", "humidity", "ph_tolerance", "sunshine", "climate_types", "soils"}
-		if QueryStringVerification(variables, c.Keys["research_data"].(filters.ResearchData).QueryStringToVerify.Parameters, c) {
-			c.Next()
-		}
-	}
-}
-
-func GardensQueryStringVerification() gin.HandlerFunc {
-	return func(c *gin.Context) {
-		variables := []string{"id", "createdAt", "updatedAt", "garden", "garden.cases", "garden.cases.plant_id", "garden.cases.shading", "position", "position.lat", "position.lng", "size", "size.height", "size.width", "user_id"}
+		variables := []string{"id", "createdAt", "updatedAt", "username", "email", "admin", "verified", "mmr", "friend_list"}
 		if QueryStringVerification(variables, c.Keys["research_data"].(filters.ResearchData).QueryStringToVerify.Parameters, c) {
 			c.Next()
 		}

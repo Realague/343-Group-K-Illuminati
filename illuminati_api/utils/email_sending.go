@@ -63,9 +63,8 @@ func createTemplate(url string, button string, title string) string {
                         <tr>
                             <td style="font-size:6px;line-height:10px;background-color:#f5f8fa;padding:30px 0px 30px 0px"
                                 valign="top" align="center">
-                                <a href="https://layana.eu" target="_blank"
-                                   data-saferedirecturl="https://www.google.com/url?q=&amp;source=gmail&amp;ust=1563300891949000&amp;usg=AFQjCNGTlB0c_F6WHQqzTQDCXnHEUuxjRQ"><img
-                                    src="https://image.noelshack.com/fichiers/2019/29/2/1563310054-logofondtransparent.png"
+                                <img
+                                    src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fi2.wp.com%2Fthetoylockermi.com%2Fwp-content%2Fuploads%2F2018%2F08%2FIlluminati-The-Game-of-Conspiracy.jpg%3Ffit%3D550%252C206&imgrefurl=http%3A%2F%2Fthetoylockermi.com%2Filluminati-the-game-of-conspiracy-has-been-updated%2F&tbnid=m3WfqBTrNGslXM&vet=12ahUKEwjwvIv9veHnAhV1PH0KHRDjAmwQMygLegUIARDPAQ..i&docid=kv0z9UZNtgpQTM&w=550&h=206&q=illuminati%20game%20logo&client=firefox-b-d&ved=2ahUKEwjwvIv9veHnAhV1PH0KHRDjAmwQMygLegUIARDPAQ"
                                     alt="Illuminati"
                                     style="display:block;color:#000;text-decoration:none;font-family:Helvetica,arial,sans-serif;font-size:16px;max-width:40%!important;width:40%;height:auto!important"
                                     width="228" border="0"/> </a>
