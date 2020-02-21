@@ -9,23 +9,27 @@ import (
 
 // User represents a real person.
 type User struct {
-	Id        bson.ObjectId `json:"id" bson:"_id,omitempty"`
-	CreatedAt time.Time     `json:"createdAt"`
-	UpdatedAt time.Time     `json:"updatedAt"`
-	Deleted   bool          `json:"-"`
-	Username  string        `json:"username" bson:"username" binding:"required"`
-	Email     string        `json:"email" bson:"email" binding:"required"`
-	Password  string        `json:"-" bson:"password"`
-	Admin     bool          `json:"admin" bson:"admin"`
-	Verified  bool          `json:"verified" bson:"verified"`
+	Id         bson.ObjectId   `json:"id" bson:"_id,omitempty"`
+	CreatedAt  time.Time       `json:"createdAt"`
+	UpdatedAt  time.Time       `json:"updatedAt"`
+	Deleted    bool            `json:"-"`
+	Username   string          `json:"username" bson:"username" binding:"required"`
+	Email      string          `json:"email" bson:"email" binding:"required"`
+	Password   string          `json:"-" bson:"password"`
+	Admin      bool            `json:"admin" bson:"admin"`
+	Verified   bool            `json:"verified" bson:"verified"`
+	Mmr        int64           `json:"mmr" bson:"mmr"`
+	FriendList []bson.ObjectId `json:"friend_list" bson:"friend_list"`
 }
 
 type UpdateUser struct {
-	Username      string         `json:"username" bson:"username" binding:"required"`
-	Email         string         `json:"email" bson:"email" binding:"required"`
-	Password      string         `json:"password" bson:"password"`
-	Admin         bool           `json:"admin" bson:"admin"`
-	Verified      bool           `json:"verified" bson:"verified"`
+	Username   string          `json:"username" bson:"username" binding:"required"`
+	Email      string          `json:"email" bson:"email" binding:"required"`
+	Password   string          `json:"password" bson:"password"`
+	Mmr        int64           `json:"mmr" bson:"mmr"`
+	FriendList []bson.ObjectId `json:"friend_list" bson:"friend_list"`
+	Admin      bool            `json:"admin" bson:"admin"`
+	Verified   bool            `json:"verified" bson:"verified"`
 }
 
 func (user *User) Validate(nb int, nbUsername int, forbiddenMailAddresses []*ForbiddenMailAddress, err error) (bool, []error) {

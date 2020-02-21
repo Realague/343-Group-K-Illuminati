@@ -9,6 +9,7 @@ import (
 	"343-Group-K-Illuminati/illuminati_api/models/payload"
 	"343-Group-K-Illuminati/illuminati_api/utils"
 	"errors"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"time"
@@ -17,7 +18,7 @@ import (
 func InitUserController(route *gin.RouterGroup) {
 	route.Use()
 	{
-		route.GET("", middleware.Research(), middleware.UsersQueryStringVerification(), func(c *gin.Context) {
+		route.GET("",  middleware.IsAuthenticated(), middleware.Research(), middleware.UsersQueryStringVerification(), func(c *gin.Context) {
 			var errorsCustom error_handler.ErrorMulti
 			research := c.Keys["research_data"].(filters.ResearchData)
 
@@ -27,7 +28,9 @@ func InitUserController(route *gin.RouterGroup) {
 				error_handler.HandleCustomError(err, errorsCustom, c, http.StatusInternalServerError)
 				return
 			}
-			c.JSON(http.StatusOK, users)
+			c.JSON(http.StatusOK, gin.H{
+				"users": users,
+			})
 		})
 
 		route.GET("/:id", middleware.IsAuthenticated(), func(c *gin.Context) {
@@ -106,6 +109,8 @@ func InitUserController(route *gin.RouterGroup) {
 			user.Admin = updatePayload.Admin
 			user.Email = updatePayload.Email
 			user.Verified = updatePayload.Verified
+			user.FriendList = updatePayload.FriendList
+			user.Mmr = updatePayload.Mmr
 
 			err = database.Database.UpdateUser(id, &user)
 			if err != nil {

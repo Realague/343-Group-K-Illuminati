@@ -22,7 +22,7 @@ func SendConfirmationEmail(c *gin.Context, user db.User) error {
 
 	url := config.Config.EmailConfirmationEndpoint + token
 
-	return SendEmail("Confirm Email", createTemplate(url, "Valider mon adresse email", "Cliquez sur le bouton ci-dessous pour valider votre adresse mail"), user.Email)
+	return SendEmail("Confirm Email", createTemplate(url, "Validate your email address", "Click on the button down below to validate your email address"), user.Email)
 }
 
 func SendRecoverPasswordEmail(c *gin.Context, user db.User) error {
@@ -37,7 +37,7 @@ func SendRecoverPasswordEmail(c *gin.Context, user db.User) error {
 
 	url := config.Config.RecoverPasswordUrl + token
 
-	return SendEmail("Recover password", createTemplate(url, "Récupérer mon mot de passe", "Cliquez sur le bouton ci-dessous pour récupérer votre mot de passe"), user.Email)
+	return SendEmail("Recover password", createTemplate(url, "Recover password", "Click on the button down below to recover your password"), user.Email)
 }
 
 func SendEmail(subject string, body string, email string) error {
@@ -66,7 +66,7 @@ func createTemplate(url string, button string, title string) string {
                                 <a href="https://layana.eu" target="_blank"
                                    data-saferedirecturl="https://www.google.com/url?q=&amp;source=gmail&amp;ust=1563300891949000&amp;usg=AFQjCNGTlB0c_F6WHQqzTQDCXnHEUuxjRQ"><img
                                     src="https://image.noelshack.com/fichiers/2019/29/2/1563310054-logofondtransparent.png"
-                                    alt="Layana"
+                                    alt="Illuminati"
                                     style="display:block;color:#000;text-decoration:none;font-family:Helvetica,arial,sans-serif;font-size:16px;max-width:40%!important;width:40%;height:auto!important"
                                     width="228" border="0"/> </a>
                             </td>
