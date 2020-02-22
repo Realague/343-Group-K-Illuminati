@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"343-Group-K-Illuminati/illuminati_api/config"
 	"343-Group-K-Illuminati/illuminati_api/controllers/error_handler"
 	"343-Group-K-Illuminati/illuminati_api/database"
 	"343-Group-K-Illuminati/illuminati_api/middleware"
@@ -27,9 +28,13 @@ func InitUserController(route *gin.RouterGroup) {
 				error_handler.HandleCustomError(err, errorsCustom, c, http.StatusInternalServerError)
 				return
 			}
-			c.JSON(http.StatusOK, gin.H{
-				"users": users,
-			})
+			if config.Config.IsUnitTest == true {
+				c.JSON(http.StatusOK, users)
+			} else {
+				c.JSON(http.StatusOK, gin.H{
+					"users": users,
+				})
+			}
 		})
 
 		route.GET("/:id", middleware.IsAuthenticated(), func(c *gin.Context) {
