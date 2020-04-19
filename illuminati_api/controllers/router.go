@@ -30,6 +30,10 @@ func InitRouter() *gin.Engine {
 		c.JSON(http.StatusOK, gin.H{})
 	})
 
+	r.GET("api/version", func (c *gin.Context) {
+		c.JSON(http.StatusOK, "1.0.0")
+	})
+
 	api := r.Group("/api")
 
 	auth := api.Group("/auth")
